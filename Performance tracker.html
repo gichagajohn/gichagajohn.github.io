@@ -661,7 +661,7 @@ tbody tr:hover{background:var(--sur2)}
 
     <div class="flex items-c jc-sb fw" style="gap:8px;margin-top:16px;padding:10px 14px;background:var(--sur2);border-radius:var(--rsm);border:1px solid var(--bor2)">
       <div style="font-size:12.5px;color:var(--txt2)">Total free slots selected: <strong id="totalSlotsCount" style="color:var(--acc)">0</strong></div>
-      <div style="font-size:12.5px;color:var(--txt3)">Each slot = 30 min study session</div>
+      <div style="font-size:12.5px;color:var(--txt3)">Each slot = 1 hour study session</div>
     </div>
 
     <div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal('modalTTConfig')">Cancel</button><button class="btn btn-primary" onclick="doGenerateTT()">Generate Timetable →</button></div>
@@ -716,9 +716,9 @@ const CURRICULUM={
 };
 const DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-/* All time slots available (30-min blocks, 5AM–10PM) */
+/* All time slots available (1-hour blocks, 5AM–10PM) */
 const ALL_TIME_SLOTS=[];
-for(let h=5;h<22;h++){ALL_TIME_SLOTS.push({h,m:0,label:fmtTimeStatic(h,0)});ALL_TIME_SLOTS.push({h,m:30,label:fmtTimeStatic(h,30)})}
+for(let h=5;h<22;h++){ALL_TIME_SLOTS.push({h,m:0,label:fmtTimeStatic(h,0)})}
 function fmtTimeStatic(h,m=0){const hh=h%12||12,ap=h<12?'AM':'PM';return`${hh}:${String(m).padStart(2,'0')} ${ap}`}
 
 const BANDS=[
@@ -1347,7 +1347,7 @@ function buildFreeSlotPicker(){
           const key=`${ts.h}:${ts.m}`;
           const isSel=selected.has(key);
           // School hours 8–15 are greyed as "school time" hint
-          const isSchool=ts.h>=7&&ts.h<15&&!(ts.h===7&&ts.m===30);
+          const isSchool=ts.h>=7&&ts.h<15;
           return `<div class="time-slot-btn ${isSel?'selected':''} ${isSchool&&!isSel?'break-slot':''}"
             data-day="${day}" data-h="${ts.h}" data-m="${ts.m}"
             onclick="toggleFreeSlot('${day}',${ts.h},${ts.m},this)"
@@ -1443,7 +1443,7 @@ function doGenerateTT(){
     dayFree.forEach((slot,slotIdx)=>{
       const subj=ranked[idx%ranked.length];
       const isWeak=safePct(subj.score,subj.max)<70;
-      const endMin=(slot.h*60+slot.m)+30+(isWeak?10:0);
+      const endMin=(slot.h*60+slot.m)+60+(isWeak?15:0);
       sessions.push({
         day,slot:slotIdx,subject:subj.name,css:subj.css,
         startTime:fmtTime(slot.h,slot.m),

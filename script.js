@@ -1,178 +1,183 @@
-/* ============================================================
-   John Gichaga Portfolio — script.js
-   Handles: nav scroll, mobile menu, reveal animations,
-            skill bars, active nav highlight, contact form
-============================================================ */
+const header = document.querySelector(".site-header");
+const navToggle = document.getElementById("navToggle");
+const navPanel = document.getElementById("navPanel");
+const navLinks = document.getElementById("navLinks");
+const themeToggle = document.getElementById("themeToggle");
+const backToTop = document.getElementById("backToTop");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-
-// ── 1. NAV: Add "scrolled" class after user scrolls ──────────
-const nav = document.getElementById('nav');
-
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-
-// ── 2. MOBILE MENU toggle ────────────────────────────────────
-const navToggle = document.getElementById('navToggle');
-const navLinks  = document.getElementById('navLinks');
-
-// Backdrop element (created here so index.html stays clean)
-const backdrop = document.createElement('div');
-backdrop.className = 'nav__backdrop';
-document.body.appendChild(backdrop);
+const backdrop = document.createElement("div");
+backdrop.className = "nav-backdrop";
+backdrop.setAttribute("aria-hidden", "true");
+document.body.append(backdrop);
 
 function setMenu(open) {
-  navLinks.classList.toggle('open', open);
-  backdrop.classList.toggle('open', open);
-  nav.classList.toggle('nav--open', open);
-  document.body.classList.toggle('nav-open', open);
-  navToggle.setAttribute('aria-expanded', String(open));
-
-  const spans = navToggle.querySelectorAll('span');
-  spans[0].style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
-  spans[1].style.opacity   = open ? '0' : '';
-  spans[2].style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+  const focusWasInMenu = navPanel.contains(document.activeElement);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation",
+  );
+  navPanel.classList.toggle("is-open", open);
+  backdrop.classList.toggle("is-open", open);
+  document.body.classList.toggle("menu-open", open);
+  if (open) navLinks.querySelector("a")?.focus();
+  else if (focusWasInMenu) navToggle.focus();
 }
 
-navToggle.addEventListener('click', () => {
-  setMenu(!navLinks.classList.contains('open'));
+navToggle.addEventListener("click", () =>
+  setMenu(navToggle.getAttribute("aria-expanded") !== "true"),
+);
+backdrop.addEventListener("click", () => {
+  setMenu(false);
+  navToggle.focus();
+});
+navLinks.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMenu(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "Escape" &&
+    navToggle.getAttribute("aria-expanded") === "true"
+  ) {
+    setMenu(false);
+    navToggle.focus();
+  }
+});
+window.addEventListener("resize", () => {
+  if (
+    window.innerWidth > 720 &&
+    navToggle.getAttribute("aria-expanded") === "true"
+  )
+    setMenu(false);
 });
 
-// Close on link tap, backdrop tap, or Escape key
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => setMenu(false));
-});
-backdrop.addEventListener('click', () => setMenu(false));
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && navLinks.classList.contains('open')) setMenu(false);
-});
+function updateScrollState() {
+  const scrolled = window.scrollY > 24;
+  header.classList.toggle("is-scrolled", scrolled);
+  backToTop.classList.toggle("is-visible", window.scrollY > 560);
+}
+window.addEventListener("scroll", updateScrollState, { passive: true });
+updateScrollState();
 
-
-// ── 3. SCROLL REVEAL (IntersectionObserver) ──────────────────
-const revealEls = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const delay = entry.target.dataset.delay || 0;
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, delay);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-// Stagger children inside grid sections
-document.querySelectorAll(
-  '.skills__grid, .services__grid, .projects__grid, .about__highlights'
-).forEach(grid => {
-  grid.querySelectorAll('.reveal').forEach((child, i) => {
-    child.dataset.delay = i * 80;
-  });
+const themeKey = "portfolio-theme";
+const storedTheme = sessionStorage.getItem(themeKey);
+if (storedTheme === "light" || storedTheme === "dark")
+  document.documentElement.dataset.theme = storedTheme;
+function updateThemeButton() {
+  const isDark = document.documentElement.dataset.theme !== "light";
+  themeToggle.setAttribute(
+    "aria-label",
+    `Switch to ${isDark ? "light" : "dark"} theme`,
+  );
+  themeToggle.querySelector(".theme-label").textContent = isDark
+    ? "Light"
+    : "Dark";
+  themeToggle.querySelector(".theme-icon").textContent = isDark ? "☼" : "◐";
+}
+updateThemeButton();
+themeToggle.addEventListener("click", () => {
+  const nextTheme =
+    document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  document.documentElement.dataset.theme = nextTheme;
+  sessionStorage.setItem(themeKey, nextTheme);
+  updateThemeButton();
 });
 
-revealEls.forEach(el => revealObserver.observe(el));
-
-
-// ── 4. SKILL BAR ANIMATION ───────────────────────────────────
-// Bars animate to their --pct value when the skills section enters view
-const skillSection  = document.getElementById('skills');
-let   skillsAnimated = false;
-
-const skillBarObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !skillsAnimated) {
-      skillsAnimated = true;
-      document.querySelectorAll('.skill-card__fill').forEach((bar, i) => {
-        const pct = getComputedStyle(bar).getPropertyValue('--pct').trim();
-        bar.style.width = '0%';
-        setTimeout(() => {
-          bar.style.transition = 'width 1.2s cubic-bezier(0.22, 1, 0.36, 1)';
-          bar.style.width = pct;
-        }, 200 + i * 80);
+const revealElements = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window && !reducedMotion.matches) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
       });
-    }
-  });
-}, { threshold: 0.2 });
-
-if (skillSection) skillBarObserver.observe(skillSection);
-
-
-// ── 5. CONTACT FORM — real Formspree submission ───────────────
-const contactForm = document.getElementById('contactForm');
-const formSuccess = document.getElementById('formSuccess');
-const formError   = document.getElementById('formError');
-const submitBtn   = document.getElementById('submitBtn');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async function (e) {
-    e.preventDefault(); // prevent default browser redirect
-
-    // Show loading state
-    submitBtn.textContent = 'Sending…';
-    submitBtn.disabled    = true;
-    formError.style.display = 'none';
-
-    try {
-      const formData = new FormData(contactForm);
-
-      const response = await fetch(contactForm.action, {
-        method:  'POST',
-        body:    formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        // ✅ Success — hide form, show thank-you message
-        contactForm.style.display   = 'none';
-        formSuccess.style.display   = 'block';
-        formSuccess.classList.add('visible');
-        formError.style.display     = 'none';
-      } else {
-        // Server-side error from Formspree
-        const data = await response.json().catch(() => ({}));
-        console.error('Formspree error:', data);
-        throw new Error('Server responded with an error');
-      }
-
-    } catch (err) {
-      // ❌ Network failure or server error — show fallback
-      console.error('Submission failed:', err);
-      formError.style.display = 'block';
-      submitBtn.textContent   = 'Send Message';
-      submitBtn.disabled      = false;
-    }
-  });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -35px 0px" },
+  );
+  revealElements.forEach((element) => revealObserver.observe(element));
+} else {
+  revealElements.forEach((element) => element.classList.add("is-visible"));
 }
 
-
-// ── 6. ACTIVE NAV LINK highlight on scroll ───────────────────
-const sections    = document.querySelectorAll('section[id]');
-const navLinkEls  = document.querySelectorAll('.nav__links a');
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navLinkEls.forEach(a => {
-        a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`);
+const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+const observedSections = sectionLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          sectionLinks.forEach((link) => {
+            const active = link.getAttribute("href") === `#${entry.target.id}`;
+            link.classList.toggle("is-active", active);
+            if (active) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+          });
+        }
       });
-    }
-  });
-}, { threshold: 0.4 });
+    },
+    { rootMargin: "-24% 0px -62% 0px" },
+  );
+  observedSections.forEach((section) => sectionObserver.observe(section));
+}
 
-sections.forEach(s => sectionObserver.observe(s));
-
-
-// ── 7. SMOOTH SCROLL for older browsers ──────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+const filterButtons = document.querySelectorAll(".filter-button");
+const projectCards = document.querySelectorAll(".project-card");
+const filterEmpty = document.getElementById("filterEmpty");
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+    let visibleCount = 0;
+    filterButtons.forEach((item) => {
+      const active = item === button;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    projectCards.forEach((card) => {
+      const matches =
+        filter === "all" || card.dataset.categories.split(" ").includes(filter);
+      card.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+    filterEmpty.hidden = visibleCount > 0;
   });
 });
+
+const form = document.getElementById("contactForm");
+const successMessage = document.getElementById("formSuccess");
+const errorMessage = document.getElementById("formError");
+const submitButton = document.getElementById("submitBtn");
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  const originalButton = submitButton.innerHTML;
+  submitButton.disabled = true;
+  submitButton.setAttribute("aria-busy", "true");
+  submitButton.textContent = "Sending…";
+  errorMessage.hidden = true;
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) throw new Error("Form submission was not accepted.");
+    form.hidden = true;
+    successMessage.hidden = false;
+    successMessage.focus();
+  } catch {
+    errorMessage.hidden = false;
+    errorMessage.focus();
+    submitButton.innerHTML = originalButton;
+    submitButton.disabled = false;
+    submitButton.removeAttribute("aria-busy");
+  }
+});
+
+document.getElementById("currentYear").textContent = String(
+  new Date().getFullYear(),
+);

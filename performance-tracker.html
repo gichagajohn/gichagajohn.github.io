@@ -667,7 +667,7 @@ tbody tr:hover{background:var(--sur2)}
 
     <div class="flex items-c jc-sb fw" style="gap:8px;margin-top:16px;padding:10px 14px;background:var(--sur2);border-radius:var(--rsm);border:1px solid var(--bor2)">
       <div style="font-size:12.5px;color:var(--txt2)">Total free slots selected: <strong id="totalSlotsCount" style="color:var(--acc)">0</strong></div>
-      <div style="font-size:12.5px;color:var(--txt3)">Each slot = 1 hour study session</div>
+      <div style="font-size:12.5px;color:var(--txt3)">Each hour you select = one 1-hour study session (e.g. 7–8 PM, 8–9 PM, 9–10 PM)</div>
     </div>
 
     <div class="modal-actions"><button class="btn btn-ghost" onclick="closeModal('modalTTConfig')">Cancel</button><button class="btn btn-primary" onclick="doGenerateTT()">Generate Timetable →</button></div>
@@ -722,9 +722,15 @@ const CURRICULUM={
 };
 const DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-/* All time slots available (1-hour blocks, 5AM–10PM) */
+/* Slot model: every free slot is ONE session of exactly SLOT_MIN minutes.
+   Sessions therefore never overlap and never overrun the next slot. */
+const SLOT_MIN=60;   // length of one study session, in minutes
+const NO_BONUS=true; // no extra minutes for weak subjects (kept for clarity)
+const LAST_START=22; // a session may start no later than this hour (10 PM)
+
+/* All time slots available — one per hour, 5AM to 10PM start */
 const ALL_TIME_SLOTS=[];
-for(let h=5;h<22;h++){ALL_TIME_SLOTS.push({h,m:0,label:fmtTimeStatic(h,0)})}
+for(let h=5;h<=LAST_START;h++){ALL_TIME_SLOTS.push({h,m:0,label:fmtTimeStatic(h,0)})}
 function fmtTimeStatic(h,m=0){const hh=h%12||12,ap=h<12?'AM':'PM';return`${hh}:${String(m).padStart(2,'0')} ${ap}`}
 
 const BANDS=[
@@ -760,7 +766,39 @@ let ST={
 };
 
 function saveState(){try{localStorage.setItem('cbcST3',JSON.stringify(ST))}catch(e){}}
-function loadState(){try{const s=localStorage.getItem('cbcST3');if(s)ST={...ST,...JSON.parse(s)}}catch(e){}}
+function loadState(){try{const s=localStorage.getItem('cbcST3');if(s)ST={...ST,...JSON.parse(s)}}catch(e){}
+  sanitizeTimetable();
+}
+
+/* Drop a saved timetable if it was built by an older version:
+   overlapping sessions, odd durations, or duplicate (day, time) keys.
+   The user regenerates once and gets a correct 1-hour grid. */
+function sanitizeTimetable(){
+  const tt=ST.timetable;
+  if(!tt||!Array.isArray(tt.sessions))return;
+  const bad=tt.sessions.some(s=>{
+    const dur=(s.endH!==undefined&&s.startH!==undefined)
+      ? (s.endH*60+s.endM)-(s.startH*60+s.startM)
+      : null;
+    return dur!==null && dur!==SLOT_MIN;
+  }) || (new Set(tt.sessions.map(s=>s.key)).size!==tt.sessions.length)
+    || tt.sessions.some(s=>!/^\d+$/.test(String(s.startH)));
+
+  // Also detect overlap within a day
+  let overlap=false;
+  DAYS.forEach(d=>{
+    const list=tt.sessions.filter(s=>s.day===d)
+      .map(s=>({s:s.startH*60+s.startM,e:(s.startH*60+s.startM)+60}))
+      .sort((a,b)=>a.s-b.s);
+    for(let i=1;i<list.length;i++){if(list[i].s<list[i-1].e){overlap=true}}
+  });
+
+  if(bad||overlap){
+    ST.timetable=null;
+    ST.tracking={};
+    try{localStorage.setItem('cbcST3',JSON.stringify(ST))}catch(e){}
+  }
+}
 
 /* ══════════════════════════════════════════
    HELPERS
@@ -1396,10 +1434,11 @@ function toggleDayAll(day){
 
 function applyPreset(preset){
   if(!ST.freeSlots)ST.freeSlots={};
+  // Whole-hour starts only — each slot is one 1-hour session
   const presets={
-    morning:  [{h:5,m:0},{h:5,m:30},{h:6,m:0},{h:6,m:30},{h:7,m:0}],
-    afternoon:[{h:15,m:0},{h:15,m:30},{h:16,m:0},{h:16,m:30},{h:17,m:0}],
-    evening:  [{h:18,m:0},{h:18,m:30},{h:19,m:0},{h:19,m:30},{h:20,m:0}],
+    morning:  [{h:5,m:0},{h:6,m:0},{h:7,m:0}],
+    afternoon:[{h:15,m:0},{h:16,m:0},{h:17,m:0}],
+    evening:  [{h:18,m:0},{h:19,m:0},{h:20,m:0}],
   };
   if(preset==='weekend'){
     ['Saturday','Sunday'].forEach(d=>{if(!ST.freeSlots[d])ST.freeSlots[d]=[];presets.morning.forEach(s=>{if(!ST.freeSlots[d].find(x=>x.h===s.h&&x.m===s.m))ST.freeSlots[d].push(s)});presets.afternoon.forEach(s=>{if(!ST.freeSlots[d].find(x=>x.h===s.h&&x.m===s.m))ST.freeSlots[d].push(s)})});
@@ -1445,18 +1484,41 @@ function doGenerateTT(){
   const sessions=[];let idx=0;
 
   DAYS.forEach(day=>{
-    const dayFree=(freeSlots[day]||[]).slice().sort((a,b)=>a.h*60+a.m-(b.h*60+b.m));
+    // Collapse the picked slots into unique, sorted, non-overlapping start times.
+    // (The old picker offered 30-minute starts, which produced overlapping sessions.)
+    const seen=new Set();
+    const dayFree=(freeSlots[day]||[])
+      .filter(s=>s.h>=5&&s.h<=LAST_START)
+      .map(s=>({h:s.h,m:0}))                       // snap to the top of the hour
+      .filter(s=>{const k=`${s.h}`;if(seen.has(k))return false;seen.add(k);return true})
+      .sort((a,b)=>a.h-b.h);
+
+    const usedToday=new Set();                     // avoid the same subject twice a day
+
     dayFree.forEach((slot,slotIdx)=>{
-      const subj=ranked[idx%ranked.length];
+      // Prefer a subject not yet used today; fall back to plain rotation.
+      let subj=null;
+      for(let k=0;k<ranked.length;k++){
+        const cand=ranked[(idx+k)%ranked.length];
+        if(!usedToday.has(cand.name)){subj=cand;idx=(idx+k+1)%ranked.length;break}
+      }
+      if(!subj){subj=ranked[idx%ranked.length];idx++}
+      usedToday.add(subj.name);
+
       const isWeak=safePct(subj.score,subj.max)<70;
-      const endMin=(slot.h*60+slot.m)+60+(isWeak?15:0);
+      // Exactly SLOT_MIN minutes — nothing is added for weak subjects,
+      // so 7–8 PM, 8–9 PM and 9–10 PM are three separate clean sessions.
+      const startMin=slot.h*60+slot.m;
+      const endMin=startMin+SLOT_MIN;
+
       sessions.push({
         day,slot:slotIdx,subject:subj.name,css:subj.css,
         startTime:fmtTime(slot.h,slot.m),
         endTime:fmtTime(Math.floor(endMin/60),endMin%60),
-        key:`${day}_${slotIdx}`,weak:isWeak,startH:slot.h,startM:slot.m,
+        // Key must be unique per (day, time) — two subjects can share a row index
+        key:`${day}_${slot.h}_${slot.m}`,
+        weak:isWeak,startH:slot.h,startM:slot.m,duration:SLOT_MIN,
       });
-      if(!isWeak)idx++;idx++;
     });
   });
 
@@ -1486,9 +1548,9 @@ function renderTTGrid(){
   const{sessions}=ST.timetable;
   if(!sessions.length){document.getElementById('ttGrid').innerHTML='';return}
 
-  // Build a map: day -> sorted list of sessions by slotIdx
+  // Build a map: day -> sessions sorted by actual start time
   const dayMap={};
-  DAYS.forEach(d=>{dayMap[d]=sessions.filter(s=>s.day===d).sort((a,b)=>a.slot-b.slot)});
+  DAYS.forEach(d=>{dayMap[d]=sessions.filter(s=>s.day===d).sort((a,b)=>a.startH*60+a.startM-(b.startH*60+b.startM))});
 
   // The number of rows = max slots any single day has
   const maxSlot=Math.max(...DAYS.map(d=>dayMap[d].length));

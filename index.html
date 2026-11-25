@@ -3,15 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John Gichaga | Educator & Freelancer</title>
 
-  <!-- ✅ FAVICON — JG icon shown in browser tab -->
+  <title>John Gichaga | Maths &amp; Computer Studies Tutor · Freelancer in Nairobi</title>
+
+  <meta name="description" content="John Gichaga — Mathematics and Computer Studies teacher and freelancer in Nairobi, Kenya. Online tutoring, spreadsheet solutions, Python automation, IT support and web tools for schools and small businesses." />
+  <meta name="author" content="John Gichaga" />
+  <meta name="theme-color" content="#0D1B2A" />
+  <link rel="canonical" href="https://gichagajohn.github.io/" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="John Gichaga" />
+  <meta property="og:title" content="John Gichaga | Maths &amp; Computer Studies Tutor · Freelancer" />
+  <meta property="og:description" content="Maths &amp; Computer Studies teacher in Nairobi. Tutoring, spreadsheet solutions, Python scripts, IT support and practical web tools that solve real problems." />
+  <meta property="og:url" content="https://gichagajohn.github.io/" />
+  <meta property="og:image" content="https://gichagajohn.github.io/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="John Gichaga standing in front of a whiteboard of mathematics formulas" />
+  <meta property="og:locale" content="en_KE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="John Gichaga | Maths &amp; Computer Studies Tutor · Freelancer" />
+  <meta name="twitter:description" content="Maths &amp; Computer Studies teacher in Nairobi. Tutoring, spreadsheets, Python, IT support and practical web tools." />
+  <meta name="twitter:image" content="https://gichagajohn.github.io/assets/img/og-image.jpg" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <!-- Self-hosted fonts: no third-party request, no render-blocking CSS from Google -->
+  <link rel="preload" href="assets/fonts/dm-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/dm-serif-display-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured data: helps Google show the right info for "John Gichaga tutor Nairobi" -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "John Gichaga",
+    "jobTitle": "Mathematics & Computer Studies Teacher",
+    "description": "Mathematics and Computer Studies teacher and freelancer offering tutoring, spreadsheet solutions, Python scripting, IT support and web-based tools.",
+    "url": "https://gichagajohn.github.io/",
+    "image": "https://gichagajohn.github.io/assets/img/profile-560.jpg",
+    "email": "mailto:johngichaga8@gmail.com",
+    "telephone": "+254114094974",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "knowsAbout": ["Mathematics", "Computer Studies", "Python", "Microsoft Excel", "Data Analysis", "IT Support"],
+    "sameAs": ["https://github.com/gichagajohn"]
+  }
+  </script>
 </head>
 <body>
 
@@ -21,7 +66,13 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="#hero" class="nav__logo">JG<span class="nav__dot">.</span></a>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__links" id="navLinks">
@@ -54,8 +105,12 @@
         <a href="#contact" class="btn btn--primary">Hire Me</a>
         <a href="#projects" class="btn btn--ghost">View My Work</a>
       </div>
+      <p class="hero__status reveal">
+        <span class="hero__status-dot" aria-hidden="true"></span>
+        Available for new students &amp; freelance projects
+      </p>
     </div>
-    <div class="hero__scroll">
+    <div class="hero__scroll" aria-hidden="true">
       <span>Scroll</span>
       <div class="hero__scroll-line"></div>
     </div>
@@ -73,9 +128,13 @@
           <div class="about__frame">
             <div class="about__avatar">
               <img
-                src="WhatsApp Image 2026-07-31 at 21.06.21.jpeg"
-                alt="John Gichaga — Mathematics &amp; Computer Studies Teacher"
+                src="assets/img/profile-560.jpg"
+                width="560"
+                height="680"
+                alt="John Gichaga — Mathematics &amp; Computer Studies Teacher in Nairobi"
                 class="about__photo"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="about__badge">
@@ -103,20 +162,39 @@
           </p>
           <ul class="about__highlights reveal">
             <li>
-              <div class="about__highlight-icon">✓</div>
+              <div class="about__highlight-icon" aria-hidden="true">✓</div>
               Consistent, punctual, and results-driven
             </li>
             <li>
-              <div class="about__highlight-icon">✓</div>
+              <div class="about__highlight-icon" aria-hidden="true">✓</div>
               Clear communicator with students and clients alike
             </li>
             <li>
-              <div class="about__highlight-icon">✓</div>
+              <div class="about__highlight-icon" aria-hidden="true">✓</div>
               Always learning — committed to professional growth
             </li>
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLASSROOM BAND — uses the second photo, adds a human moment
+  ============================================================ -->
+  <section class="strip" aria-label="John Gichaga in the classroom">
+    <img
+      src="assets/img/about-banner.jpg"
+      width="1200"
+      height="675"
+      alt="John Gichaga in front of a whiteboard covered in mathematics formulas"
+      loading="lazy"
+      decoding="async"
+      class="strip__img"
+    />
+    <div class="strip__overlay">
+      <p class="strip__quote">“If I can’t explain it simply, I haven’t understood it well enough.”</p>
+      <p class="strip__caption">In the classroom · Mathematics &amp; Computer Studies · Nairobi</p>
     </div>
   </section>
 
@@ -130,50 +208,50 @@
       <div class="skills__grid">
 
         <div class="skill-card reveal">
-          <div class="skill-card__icon">∑</div>
+          <div class="skill-card__icon" aria-hidden="true">∑</div>
           <h3>Mathematics Tutoring</h3>
           <p>From secondary school algebra to advanced calculus — I simplify concepts and build real understanding.</p>
-          <div class="skill-card__bar"><div class="skill-card__fill" style="--pct: 95%"></div></div>
+          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 95%"></div></div>
           <span class="skill-card__level">Expert</span>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-card__icon">⌨</div>
+          <div class="skill-card__icon" aria-hidden="true">⌨</div>
           <h3>Computer Studies</h3>
           <p>Teaching hardware, software, networking, databases, and programming fundamentals in a clear, structured way.</p>
-          <div class="skill-card__bar"><div class="skill-card__fill" style="--pct: 90%"></div></div>
+          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 90%"></div></div>
           <span class="skill-card__level">Expert</span>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-card__icon">🐍</div>
+          <div class="skill-card__icon" aria-hidden="true">🐍</div>
           <h3>Python Programming</h3>
           <p>Scripts, automation, data manipulation, and beginner-to-intermediate projects with clean, readable code.</p>
-          <div class="skill-card__bar"><div class="skill-card__fill" style="--pct: 70%"></div></div>
+          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 70%"></div></div>
           <span class="skill-card__level">Intermediate</span>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-card__icon">⊞</div>
+          <div class="skill-card__icon" aria-hidden="true">⊞</div>
           <h3>Spreadsheet &amp; Data Analysis</h3>
           <p>Excel formulas, pivot tables, automated reports, dashboards, and data cleaning for informed decisions.</p>
-          <div class="skill-card__bar"><div class="skill-card__fill" style="--pct: 88%"></div></div>
+          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 88%"></div></div>
           <span class="skill-card__level">Advanced</span>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-card__icon">◈</div>
+          <div class="skill-card__icon" aria-hidden="true">◈</div>
           <h3>Graphic Design</h3>
           <p>Clean visuals, posters, educational materials, and simple branding with attention to layout and clarity.</p>
-          <div class="skill-card__bar"><div class="skill-card__fill" style="--pct: 75%"></div></div>
+          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 75%"></div></div>
           <span class="skill-card__level">Proficient</span>
         </div>
 
         <div class="skill-card reveal">
-          <div class="skill-card__icon">⚙</div>
+          <div class="skill-card__icon" aria-hidden="true">⚙</div>
           <h3>IT Support</h3>
           <p>Troubleshooting, device setup, software installation, and general tech support for homes and small offices.</p>
-          <div class="skill-card__bar"><div class="skill-card__fill" style="--pct: 82%"></div></div>
+          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 82%"></div></div>
           <span class="skill-card__level">Advanced</span>
         </div>
 
@@ -194,42 +272,42 @@
       <div class="services__grid">
 
         <div class="service-card reveal">
-          <div class="service-card__number">01</div>
+          <div class="service-card__number" aria-hidden="true">01</div>
           <h3>Online Tutoring</h3>
           <p>One-on-one and group tutoring sessions for Mathematics and Computer Studies, tailored to your curriculum and pace.</p>
           <a href="#contact" class="service-card__link">Get Started →</a>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-card__number">02</div>
+          <div class="service-card__number" aria-hidden="true">02</div>
           <h3>Academic &amp; Assignment Support</h3>
           <p>Help with homework, assignments, exam prep, and understanding difficult concepts across STEM subjects.</p>
           <a href="#contact" class="service-card__link">Get Started →</a>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-card__number">03</div>
+          <div class="service-card__number" aria-hidden="true">03</div>
           <h3>Spreadsheet Solutions</h3>
           <p>Custom Excel templates, automated calculations, data reports, dashboards, and data cleaning for individuals and businesses.</p>
           <a href="#contact" class="service-card__link">Get Started →</a>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-card__number">04</div>
+          <div class="service-card__number" aria-hidden="true">04</div>
           <h3>Basic Programming Tasks</h3>
           <p>Simple Python scripts, automation tools, file processing, and beginner-level code projects.</p>
           <a href="#contact" class="service-card__link">Get Started →</a>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-card__number">05</div>
+          <div class="service-card__number" aria-hidden="true">05</div>
           <h3>IT Troubleshooting &amp; Support</h3>
           <p>Device diagnostics, software setup, virus removal, network configuration, and general tech assistance.</p>
           <a href="#contact" class="service-card__link">Get Started →</a>
         </div>
 
         <div class="service-card reveal">
-          <div class="service-card__number">06</div>
+          <div class="service-card__number" aria-hidden="true">06</div>
           <h3>Graphic Design</h3>
           <p>Educational posters, school materials, simple logos, flyers, and visual content with a clean, professional look.</p>
           <a href="#contact" class="service-card__link">Get Started →</a>
@@ -246,93 +324,104 @@
     <div class="container">
       <p class="section__label reveal">My Work</p>
       <h2 class="section__title reveal">Projects &amp; Portfolio</h2>
+      <p class="section__sub reveal">
+        Every project below is live — click through and use it. Each one started as a
+        problem I met in a classroom or with a client.
+      </p>
       <div class="projects__grid">
 
-        <div class="project-card reveal">
-          <a href="Performance tracker.html" class="project-card__link-wrap">
-            <div class="project-card__tag">Spreadsheet · Data Analysis</div>
+        <article class="project-card reveal">
+          <a href="performance-tracker.html" class="project-card__link-wrap">
+            <div class="project-card__tag">Education · Analytics</div>
             <h3>Student Performance Tracker</h3>
             <p>
-              An Excel workbook that tracks students' grades across subjects,
-              auto-computes averages, generates progress charts, and flags
-              students needing attention — saving teachers hours of manual work.
+              A web app for tracking CBC learner marks across subjects, comparing terms,
+              setting targets and generating progress charts — saving teachers hours of
+              manual work.
             </p>
             <div class="project-card__footer">
-              <span class="project-card__tech">Excel</span>
-              <span class="project-card__tech">Pivot Tables</span>
-              <span class="project-card__tech">Charts</span>
+              <span class="project-card__tech">JavaScript</span>
+              <span class="project-card__tech">Chart.js</span>
+              <span class="project-card__tech">PDF Export</span>
             </div>
+            <span class="project-card__cta">Open app →</span>
           </a>
-        </div>
+        </article>
 
-        <div class="project-card reveal">
+        <article class="project-card reveal">
           <a href="password-generator.html" class="project-card__link-wrap">
-            <div class="project-card__tag">Python · Automation</div>
+            <div class="project-card__tag">Security · Utility</div>
             <h3>Secure Password Generator</h3>
             <p>
-              A Python command-line tool that generates strong, customisable
-              passwords based on length and character preferences, with options
-              to save them to a local encrypted file.
+              A browser-based generator that creates strong passwords from your chosen
+              length and character rules. Uses the Web Crypto API — the generated
+              password never leaves your device.
             </p>
             <div class="project-card__footer">
-              <span class="project-card__tech">Python</span>
-              <span class="project-card__tech">CLI</span>
+              <span class="project-card__tech">JavaScript</span>
+              <span class="project-card__tech">Web Crypto</span>
             </div>
+            <span class="project-card__cta">Try it →</span>
           </a>
-        </div>
+        </article>
 
-        <div class="project-card reveal">
+        <article class="project-card reveal">
           <a href="study-timetable.html" class="project-card__link-wrap">
             <div class="project-card__tag">Productivity · Education</div>
             <h3>Study Timetable Generator</h3>
             <p>
-              A smart timetable generator that helps students create balanced study schedules
-              based on subjects, available time, and priorities. Automatically distributes
-              study sessions, prevents overload, and improves time management for exams.
+              Build a weekly study timetable by dragging subjects onto time slots.
+              Colour-coded, printable, and saved in your browser so your plan is still
+              there when you come back.
             </p>
             <div class="project-card__footer">
               <span class="project-card__tech">HTML</span>
               <span class="project-card__tech">JavaScript</span>
-              <span class="project-card__tech">Logic Design</span>
+              <span class="project-card__tech">Local Storage</span>
             </div>
+            <span class="project-card__cta">Try it →</span>
           </a>
-        </div>
+        </article>
 
-        <div class="project-card reveal">
-           <a href="https://student-cash-system.web.app" target="_blank">
-          <div class="project-card__tag">firebase · React</div>
-          <h3>Student Cash Management System</h3>
-          <p>
-             A full-stack banking-style cash management system built for boarding schools. 
-  Teachers securely hold and manage student funds, recording deposits and withdrawals 
-  with real-time balance tracking. Built with React, Firebase Authentication, and 
-  Firestore — featuring role-based access for admins and teachers, full transaction 
-  history, and CSV export reports.
-          </p>
-          <div class="project-card__footer">
-            <span class="project-card__tech">Javascript</span>
-            <span class="project-card__tech">React</span>
-          </div>
-           </a>
-        </div>
-
-        <div class="project-card reveal">
-          <a href="budget-tracker.html" class="project-card__link-wrap">
-            <div class="project-card__tag">Spreadsheet · Reporting</div>
-            <h3>Business Expense Report Template</h3>
+        <article class="project-card reveal">
+          <a href="https://student-cash-system.web.app" target="_blank" rel="noopener noreferrer" class="project-card__link-wrap">
+            <div class="project-card__tag">Firebase · React</div>
+            <h3>Student Cash Management System</h3>
             <p>
-              A ready-to-use Excel expense tracker with automated monthly
-              summaries, category breakdowns, and printable reports — designed
-              for freelancers and small business owners.
+              A full-stack banking-style cash management system built for boarding schools.
+              Teachers securely hold and manage student funds, recording deposits and withdrawals
+              with real-time balance tracking. Built with React, Firebase Authentication, and
+              Firestore — featuring role-based access for admins and teachers, full transaction
+              history, and CSV export reports.
             </p>
             <div class="project-card__footer">
-              <span class="project-card__tech">Excel</span>
-              <span class="project-card__tech">Automation</span>
+              <span class="project-card__tech">React</span>
+              <span class="project-card__tech">Firebase Auth</span>
+              <span class="project-card__tech">Firestore</span>
             </div>
+            <span class="project-card__cta">Open live app ↗</span>
           </a>
-        </div>
+        </article>
 
-        <div class="project-card reveal">
+        <article class="project-card reveal">
+          <a href="budget-tracker.html" class="project-card__link-wrap">
+            <div class="project-card__tag">Finance · Reporting</div>
+            <h3>Budget &amp; Expense Tracker</h3>
+            <p>
+              A ready-to-use tracker for income and expenses with automated monthly
+              summaries, category breakdowns and printable reports — designed for
+              freelancers and small business owners.
+            </p>
+            <div class="project-card__footer">
+              <span class="project-card__tech">JavaScript</span>
+              <span class="project-card__tech">Charts</span>
+              <span class="project-card__tech">Local Storage</span>
+            </div>
+            <span class="project-card__cta">Try it →</span>
+          </a>
+        </article>
+
+        <article class="project-card reveal">
           <div class="project-card__tag">Graphic Design · Education</div>
           <h3>Classroom Visual Aids</h3>
           <p>
@@ -344,7 +433,8 @@
             <span class="project-card__tech">Design</span>
             <span class="project-card__tech">Education</span>
           </div>
-        </div>
+          <span class="project-card__cta project-card__cta--muted">Samples on request</span>
+        </article>
 
       </div>
     </div>
@@ -369,22 +459,22 @@
             respond promptly.
           </p>
           <div class="contact__details reveal">
-            <a href="tel:0114094974" class="contact__detail">
-              <div class="contact__detail-icon">📞</div>
+            <a href="tel:+254114094974" class="contact__detail">
+              <div class="contact__detail-icon" aria-hidden="true">📞</div>
               <div>
                 <span class="contact__detail-label">Phone</span>
                 <span class="contact__detail-value">0114 094 974</span>
               </div>
             </a>
             <a href="mailto:johngichaga8@gmail.com" class="contact__detail">
-              <div class="contact__detail-icon">✉</div>
+              <div class="contact__detail-icon" aria-hidden="true">✉</div>
               <div>
                 <span class="contact__detail-label">Email</span>
                 <span class="contact__detail-value">johngichaga8@gmail.com</span>
               </div>
             </a>
             <div class="contact__detail">
-              <div class="contact__detail-icon">📍</div>
+              <div class="contact__detail-icon" aria-hidden="true">📍</div>
               <div>
                 <span class="contact__detail-label">Location</span>
                 <span class="contact__detail-value">Nairobi, Kenya</span>
@@ -402,14 +492,16 @@
             method="POST"
           >
             <input type="hidden" name="_subject" value="New message from your portfolio site" />
+            <!-- Honeypot: bots fill this, humans never see it -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
 
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="e.g. Jane Mwangi" required />
+              <input type="text" id="name" name="name" placeholder="e.g. Jane Mwangi" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
             </div>
             <div class="form-group">
               <label for="service">Service Needed</label>
@@ -436,14 +528,14 @@
           </form>
 
           <!-- Success message -->
-          <div class="form-success" id="formSuccess">
-            <div class="form-success__icon">✓</div>
+          <div class="form-success" id="formSuccess" role="status">
+            <div class="form-success__icon" aria-hidden="true">✓</div>
             <h3>Message Sent!</h3>
             <p>Thank you for reaching out. I'll get back to you shortly.</p>
           </div>
 
           <!-- Error fallback -->
-          <div class="form-error" id="formError">
+          <div class="form-error" id="formError" role="alert">
             <p>⚠ Something went wrong. Please email me directly at
               <a href="mailto:johngichaga8@gmail.com">johngichaga8@gmail.com</a>
             </p>
@@ -463,6 +555,7 @@
         <span class="footer__logo">JG<span class="nav__dot">.</span></span>
         <p class="footer__copy">© 2026 John Gichaga. All rights reserved.</p>
         <p class="footer__made">Educator · Freelancer · Problem Solver</p>
+        <a href="https://github.com/gichagajohn" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
     </div>
   </footer>

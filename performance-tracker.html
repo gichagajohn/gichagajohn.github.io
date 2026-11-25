@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CBC Learner Performance System</title>
+<title>CBC Learner Performance Tracker | John Gichaga</title>
+<meta name="description" content="Track CBC learner marks across subjects, compare terms, set targets and generate printable progress reports for Kenyan primary, junior and senior school." />
+<link rel="canonical" href="https://gichagajohn.github.io/performance-tracker.html"/>
  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/fonts/perf/fonts.css"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
@@ -319,6 +321,10 @@ tbody tr:hover{background:var(--sur2)}
 <header class="topbar">
   <div class="brand"><div class="brand-logo">📚</div><div class="brand-name">CBC <em>Learner</em></div></div>
   <div class="topbar-right">
+    <a href="index.html" title="Back to John Gichaga's portfolio"
+       style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--txt2);text-decoration:none;border:1px solid var(--bor);border-radius:99px;padding:5px 12px;transition:.2s"
+       onmouseover="this.style.color='var(--txt)';this.style.borderColor='var(--bor2)'"
+       onmouseout="this.style.color='var(--txt2)';this.style.borderColor='var(--bor)'">← Portfolio</a>
     <div class="learner-pill" id="topPill" style="display:none"><div class="lpill-dot"></div><span id="topName" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">—</span></div>
     <span class="lv-badge lv-default" id="topBadge" style="display:none"></span>
   </div>

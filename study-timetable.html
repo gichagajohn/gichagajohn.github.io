@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Study Timetable Planner | John Gichaga</title>
+  <meta name="description" content="Build a colour-coded weekly study timetable in your browser. Drag subjects onto time slots, print it, and it saves automatically. A free tool by John Gichaga." />
+  <link rel="canonical" href="https://gichagajohn.github.io/study-timetable.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <style>
     :root {
       --navy:    #0D1B2A;
@@ -63,11 +64,13 @@
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 240px 1fr;
+      grid-template-columns: 240px minmax(0, 1fr);
       gap: 20px;
       align-items: start;
     }
-    @media (max-width: 720px) { .layout { grid-template-columns: 1fr; } }
+    /* minmax(0,1fr) lets the track shrink below the timetable's min-width;
+       .timetable-wrap then scrolls horizontally instead of the page. */
+    @media (max-width: 720px) { .layout { grid-template-columns: minmax(0, 1fr); } }
 
     /* ── Sidebar ── */
     .sidebar {}
@@ -332,7 +335,7 @@
   <script>
     const DAYS  = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     const TIMES = [
-      '5:00 AM','6:00 AM','7:00 PM',
+      '5:00 PM','6:00 PM','7:00 PM',
       '8:00 PM','9:00 PM'
     ]
 
@@ -349,9 +352,30 @@
       { name: 'Orange',  text: '#9A3412', bg: '#FFF7ED' },
     ]
 
+    const STORE_KEY = 'jg-study-timetable-v1'
+
     let subjects = []    // { id, name, colorIndex }
     let schedule = {}    // key: `${dayIdx}-${timeIdx}` → subjectId
     let selectedSubject = null
+
+    // ── Persistence ──
+    function saveState() {
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify({ subjects, schedule, nextId }))
+      } catch (e) { /* private mode / quota — fail silently */ }
+    }
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORE_KEY)
+        if (!raw) return false
+        const data = JSON.parse(raw)
+        if (!Array.isArray(data.subjects)) return false
+        subjects = data.subjects
+        schedule = data.schedule || {}
+        nextId   = data.nextId || (subjects.reduce((m, s) => Math.max(m, s.id), 0) + 1)
+        return subjects.length > 0
+      } catch (e) { return false }
+    }
 
     // Populate color select
     const colorSel = document.getElementById('colorSelect')
@@ -435,18 +459,21 @@
       const key = `${di}-${ti}`
       schedule[key] = subj.id
       renderCellContent(cell, subj, key)
+      saveState()
     }
 
     function clearCell(e, key) {
       e.stopPropagation()
       delete schedule[key]
       buildGrid()
+      saveState()
     }
 
     function clearAll() {
       if (confirm('Clear the entire timetable?')) {
         schedule = {}
         buildGrid()
+        saveState()
       }
     }
 
@@ -461,6 +488,7 @@
       document.getElementById('subjInput').value = ''
       renderSubjectList()
       updateLegend()
+      saveState()
       // Auto-select new subject
       selectSubject(subj.id)
     }
@@ -473,6 +501,7 @@
       renderSubjectList()
       updateLegend()
       buildGrid()
+      saveState()
     }
 
     function selectSubject(id) {
@@ -532,13 +561,16 @@
       { name: 'Chemistry',   ci: 3 },
       { name: 'Kiswahili',   ci: 4 },
     ]
-    SAMPLE.forEach(s => {
-      subjects.push({ id: nextId++, name: s.name, colorIndex: s.ci })
-    })
+    const hadSaved = loadState()
+    if (!hadSaved) {
+      SAMPLE.forEach(s => {
+        subjects.push({ id: nextId++, name: s.name, colorIndex: s.ci })
+      })
+    }
     renderSubjectList()
     updateLegend()
     buildGrid()
-    selectSubject(subjects[0].id)
+    if (subjects.length) selectSubject(subjects[0].id)
   </script>
 
 </body>

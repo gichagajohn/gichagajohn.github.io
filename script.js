@@ -17,25 +17,35 @@ window.addEventListener('scroll', () => {
 const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('navLinks');
 
+// Backdrop element (created here so index.html stays clean)
+const backdrop = document.createElement('div');
+backdrop.className = 'nav__backdrop';
+document.body.appendChild(backdrop);
+
+function setMenu(open) {
+  navLinks.classList.toggle('open', open);
+  backdrop.classList.toggle('open', open);
+  nav.classList.toggle('nav--open', open);
+  document.body.classList.toggle('nav-open', open);
+  navToggle.setAttribute('aria-expanded', String(open));
+
+  const spans = navToggle.querySelectorAll('span');
+  spans[0].style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
+  spans[1].style.opacity   = open ? '0' : '';
+  spans[2].style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+}
+
 navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  // Animate hamburger → X
-  const spans  = navToggle.querySelectorAll('span');
-  const isOpen = navLinks.classList.contains('open');
-  spans[0].style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
-  spans[1].style.opacity   = isOpen ? '0' : '';
-  spans[2].style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+  setMenu(!navLinks.classList.contains('open'));
 });
 
-// Close mobile menu when a link is tapped
+// Close on link tap, backdrop tap, or Escape key
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    const spans = navToggle.querySelectorAll('span');
-    spans[0].style.transform = '';
-    spans[1].style.opacity   = '';
-    spans[2].style.transform = '';
-  });
+  link.addEventListener('click', () => setMenu(false));
+});
+backdrop.addEventListener('click', () => setMenu(false));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && navLinks.classList.contains('open')) setMenu(false);
 });
 
 
@@ -147,9 +157,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute('id');
       navLinkEls.forEach(a => {
-        a.style.color = a.getAttribute('href') === `#${id}`
-          ? 'var(--accent)'
-          : '';
+        a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`);
       });
     }
   });

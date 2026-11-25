@@ -541,7 +541,7 @@
                   <strong>Student Cash Management System</strong>
                   React · Firebase Auth · Firestore
                   <div style="margin-top:.6rem;font-size:.72rem;line-height:1.5;">
-                    Live app link is currently returning an empty screen<br>(Firebase config issue) — see note in Projects
+                    The live link currently opens to a blank screen. Firebase reports an invalid API key. See the Projects section for details.
                   </div>
                 </div>
               </div>
@@ -550,7 +550,7 @@
             <div class="feat__body">
               <h3>Student Cash Management System</h3>
               <p>
-                A full-stack, banking-style ledger for boarding schools. Teachers hold student
+                A student account ledger for boarding schools. Teachers hold student
                 funds; every deposit and withdrawal is recorded with a running balance.
               </p>
 
@@ -564,7 +564,7 @@
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Role-based access for admins and teachers</li>
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Deposits, withdrawals and running balances</li>
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Full transaction history per student</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> CSV export for end-of-term reconciliation</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> CSV export for end of term reconciliation</li>
               </ul>
 
               <div class="feat__foot">
@@ -734,11 +734,11 @@
               <span class="card__status card__status--offline">Demo offline</span>
             </div>
             <div class="card__body">
-              <p class="card__meta">Web app · Full-stack</p>
+              <p class="card__meta">Web application · Firebase</p>
               <h3>Student Cash Management System</h3>
               <p class="card__desc">
-                Banking-style ledger for boarding schools: teachers hold student funds, every
-                deposit and withdrawal tracked with running balances and CSV export.
+                A ledger for boarding schools where teachers hold student funds. Deposits
+                and withdrawals keep a running balance, with CSV export for reconciliation.
               </p>
               <div class="tags">
                 <span class="tag">React</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span>
@@ -750,10 +750,10 @@
                   Read the case study
                 </summary>
                 <dl class="case__body">
-                  <div><dt>Problem</dt><dd>Cash held for students is tracked on paper — balances disagree and disputes can't be settled.</dd></div>
+                  <div><dt>Problem</dt><dd>Cash held for students is tracked on paper. Balances can disagree, and disputes can be difficult to settle.</dd></div>
                   <div><dt>Approach</dt><dd>Treat every movement as an immutable transaction and derive balances, never store them.</dd></div>
                   <div><dt>Build</dt><dd>React front end, Firebase Authentication for staff roles, Firestore for transactions, CSV export for reconciliation.</dd></div>
-                  <div><dt>Status</dt><dd>The deployed demo currently fails to load: Firebase reports an invalid API key, so the app renders blank. Code is complete; the environment needs its Firebase credentials restored.</dd></div>
+                  <div><dt>Status</dt><dd>The deployed demo currently fails to load. Firebase reports an invalid API key, so the app renders a blank screen. The production build needs the correct Firebase web app settings before it is deployed again.</dd></div>
                 </dl>
               </details>
 

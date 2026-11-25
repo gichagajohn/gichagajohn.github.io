@@ -1,565 +1,1034 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>John Gichaga | Maths &amp; Computer Studies Tutor · Freelancer in Nairobi</title>
-
-  <meta name="description" content="John Gichaga — Mathematics and Computer Studies teacher and freelancer in Nairobi, Kenya. Online tutoring, spreadsheet solutions, Python automation, IT support and web tools for schools and small businesses." />
+  <title>John Gichaga — Educator &amp; Technology Professional in Nairobi</title>
+  <meta name="description" content="John Gichaga is a Mathematics and Computer Studies educator and freelance technology specialist in Nairobi. Online tutoring, spreadsheet and data solutions, frontend development and practical digital tools for schools and businesses." />
   <meta name="author" content="John Gichaga" />
-  <meta name="theme-color" content="#0D1B2A" />
+  <meta name="theme-color" content="#0B1220" />
   <link rel="canonical" href="https://gichagajohn.github.io/" />
 
-  <!-- Open Graph / social sharing -->
+  <!-- Open Graph / social -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="John Gichaga" />
-  <meta property="og:title" content="John Gichaga | Maths &amp; Computer Studies Tutor · Freelancer" />
-  <meta property="og:description" content="Maths &amp; Computer Studies teacher in Nairobi. Tutoring, spreadsheet solutions, Python scripts, IT support and practical web tools that solve real problems." />
+  <meta property="og:title" content="John Gichaga — Educator &amp; Technology Professional" />
+  <meta property="og:description" content="Mathematics &amp; Computer Studies educator and freelance technology specialist in Nairobi. Tutoring, data solutions and practical web tools." />
   <meta property="og:url" content="https://gichagajohn.github.io/" />
   <meta property="og:image" content="https://gichagajohn.github.io/assets/img/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="John Gichaga standing in front of a whiteboard of mathematics formulas" />
+  <meta property="og:image:alt" content="John Gichaga in front of a whiteboard of mathematics formulas" />
   <meta property="og:locale" content="en_KE" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="John Gichaga | Maths &amp; Computer Studies Tutor · Freelancer" />
-  <meta name="twitter:description" content="Maths &amp; Computer Studies teacher in Nairobi. Tutoring, spreadsheets, Python, IT support and practical web tools." />
+  <meta name="twitter:title" content="John Gichaga — Educator &amp; Technology Professional" />
+  <meta name="twitter:description" content="Mathematics &amp; Computer Studies educator and freelance technology specialist in Nairobi." />
   <meta name="twitter:image" content="https://gichagajohn.github.io/assets/img/og-image.jpg" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-  <!-- Self-hosted fonts: no third-party request, no render-blocking CSS from Google -->
   <link rel="preload" href="assets/fonts/dm-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/dm-serif-display-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" as="image" href="assets/img/portrait-700.webp"
+        imagesrcset="assets/img/portrait-420.webp 420w, assets/img/portrait-700.webp 700w"
+        imagesizes="(max-width: 900px) 92vw, 40vw" type="image/webp" fetchpriority="high" />
+  <style>
+/* Fonts — inlined to remove a render-blocking round-trip */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('assets/fonts/dm-sans-latin-var.woff2') format('woff2-variations'),
+       url('assets/fonts/dm-sans-latin-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
-  <!-- Structured data: helps Google show the right info for "John Gichaga tutor Nairobi" -->
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('assets/fonts/dm-sans-latin-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/dm-serif-display-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/dm-serif-display-latin-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
+
+  <!-- Set the theme before first paint so there's no flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('jg-theme');
+        var wantsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (wantsDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "John Gichaga",
-    "jobTitle": "Mathematics & Computer Studies Teacher",
-    "description": "Mathematics and Computer Studies teacher and freelancer offering tutoring, spreadsheet solutions, Python scripting, IT support and web-based tools.",
+    "jobTitle": "Mathematics & Computer Studies Educator",
+    "description": "Mathematics and Computer Studies educator and freelance technology specialist offering tutoring, spreadsheet and data solutions, frontend development and IT support.",
     "url": "https://gichagajohn.github.io/",
-    "image": "https://gichagajohn.github.io/assets/img/profile-560.jpg",
+    "image": "https://gichagajohn.github.io/assets/img/portrait-700.jpg",
     "email": "mailto:johngichaga8@gmail.com",
     "telephone": "+254114094974",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Nairobi",
-      "addressCountry": "KE"
-    },
-    "knowsAbout": ["Mathematics", "Computer Studies", "Python", "Microsoft Excel", "Data Analysis", "IT Support"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" },
+    "knowsAbout": ["Mathematics", "Computer Studies", "Educational Technology", "HTML", "CSS", "JavaScript", "Python", "Microsoft Excel", "Google Sheets", "Data Analysis", "IT Support"],
     "sameAs": ["https://github.com/gichagajohn"]
   }
   </script>
 </head>
 <body>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <nav class="nav" id="nav">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================ NAV ============================ -->
+  <header class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#hero" class="nav__logo">JG<span class="nav__dot">.</span></a>
-      <button
-        class="nav__toggle"
-        id="navToggle"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-        aria-controls="navLinks"
-      >
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav__links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact" class="nav__cta">Hire Me</a></li>
-      </ul>
-    </div>
-  </nav>
+      <a href="#top" class="brand" aria-label="John Gichaga — home">
+        <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="8.5" stroke="currentColor" stroke-width="1.4" opacity=".3"/>
+          <path d="M14.2 11.6v11.1c0 3.05-1.72 4.62-4.16 4.62-1.28 0-2.32-.32-3.04-.86"
+                stroke="var(--gold)" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M33.9 15.4a7.4 7.4 0 1 0 0 9.2"
+                stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M34.3 20h-5.1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span>John Gichaga<span class="brand__dot">.</span></span>
+      </a>
 
-  <!-- ============================================================
-       HERO SECTION
-  ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg">
-      <div class="hero__grid"></div>
-      <div class="hero__orb hero__orb--1"></div>
-      <div class="hero__orb hero__orb--2"></div>
-    </div>
-    <div class="hero__content">
-      <p class="hero__eyebrow reveal">Based in Nairobi, Kenya</p>
-      <h1 class="hero__name reveal">John<br /><em>Gichaga</em></h1>
-      <p class="hero__tagline reveal">
-        Mathematics &amp; Computer Studies Teacher<br />
-        <span>Freelancer · Problem Solver · Educator</span>
-      </p>
-      <div class="hero__actions reveal">
-        <a href="#contact" class="btn btn--primary">Hire Me</a>
-        <a href="#projects" class="btn btn--ghost">View My Work</a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" id="navLinks">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#skills">Skills</a></li>
+          <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#work">Work</a></li>
+          <li><a class="nav__link" href="#projects">Projects</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+          <li><a class="btn btn--primary btn--sm" href="#contact">Hire me</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+          </svg>
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+        </button>
+
+        <button class="nav__burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-      <p class="hero__status reveal">
-        <span class="hero__status-dot" aria-hidden="true"></span>
-        Available for new students &amp; freelance projects
-      </p>
     </div>
-    <div class="hero__scroll" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
+  </header>
+  <div class="nav__scrim" id="navScrim" hidden></div>
 
-  <!-- ============================================================
-       ABOUT SECTION
-  ============================================================ -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="about__grid">
+  <main id="main">
 
-        <!-- Left: photo with decorative frame -->
-        <div class="about__visual reveal">
-          <div class="about__frame">
-            <div class="about__avatar">
-              <img
-                src="assets/img/profile-560.jpg"
-                width="560"
-                height="680"
-                alt="John Gichaga — Mathematics &amp; Computer Studies Teacher in Nairobi"
-                class="about__photo"
-                loading="lazy"
-                decoding="async"
-              />
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero__inner">
+
+          <div class="hero__copy">
+            <p class="hero__badge">
+              <span class="hero__pulse" aria-hidden="true"></span>
+              Available for tutoring &amp; freelance projects
+            </p>
+
+            <h1>
+              <span class="line">John</span>
+              <span class="line last">Gichaga</span>
+            </h1>
+
+            <p class="hero__tagline">
+              <strong>Mathematics &amp; Computer Studies educator</strong> and freelance
+              technology specialist in Nairobi. I teach the subject, then build the tools
+              that make it easier to learn, teach and run.
+            </p>
+
+            <ul class="hero__roles" aria-label="Areas of work">
+              <li class="chip">Educator</li>
+              <li class="chip">Frontend Developer</li>
+              <li class="chip">Data &amp; Spreadsheets</li>
+              <li class="chip">IT Support</li>
+            </ul>
+
+            <div class="hero__cta">
+              <a href="#contact" class="btn btn--primary">
+                Hire me
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="#projects" class="btn btn--ghost">Explore my projects</a>
             </div>
-            <div class="about__badge">
-              <span>2</span> Years Teaching
+
+            <div class="hero__socials">
+              <span>Find me</span>
+              <a class="icon-link" href="https://github.com/gichagajohn" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7 0-.7 0-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>
+              </a>
+              <a class="icon-link" href="mailto:johngichaga8@gmail.com" aria-label="Send an email">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+              </a>
+              <a class="icon-link" href="https://wa.me/254114094974" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5v-.5c0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.6.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+              </a>
             </div>
           </div>
+
+          <figure class="hero__figure">
+            <div class="hero__photo-frame">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="assets/img/portrait-420.webp 420w, assets/img/portrait-700.webp 700w"
+                  sizes="(max-width: 900px) 92vw, 40vw"
+                />
+                <img
+                  src="assets/img/portrait-700.jpg"
+                  srcset="assets/img/portrait-420.jpg 420w, assets/img/portrait-700.jpg 700w"
+                  sizes="(max-width: 900px) 92vw, 40vw"
+                  width="700" height="850"
+                  alt="John Gichaga, Mathematics and Computer Studies educator"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <figcaption class="hero__figcaption">
+              <strong>Based in</strong>
+              Nairobi, Kenya · working online and in person
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ MARQUEE ============================ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__item">Mathematics</span>
+        <span class="marquee__item">Computer Studies</span>
+        <span class="marquee__item">Educational Technology</span>
+        <span class="marquee__item">Excel &amp; Google Sheets</span>
+        <span class="marquee__item">Data Analysis</span>
+        <span class="marquee__item">HTML · CSS · JavaScript</span>
+        <span class="marquee__item">Python</span>
+        <span class="marquee__item">IT Support</span>
+        <span class="marquee__item">Mathematics</span>
+        <span class="marquee__item">Computer Studies</span>
+        <span class="marquee__item">Educational Technology</span>
+        <span class="marquee__item">Excel &amp; Google Sheets</span>
+        <span class="marquee__item">Data Analysis</span>
+        <span class="marquee__item">HTML · CSS · JavaScript</span>
+        <span class="marquee__item">Python</span>
+        <span class="marquee__item">IT Support</span>
+      </div>
+    </div>
+
+    <!-- ============================ ABOUT ============================ -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="about__grid">
+
+          <div data-reveal>
+            <figure class="about__plate">
+              <img
+                src="assets/img/about-banner.jpg"
+                width="1200" height="675"
+                alt="John Gichaga standing in front of a whiteboard of mathematics formulas"
+                loading="lazy" decoding="async"
+              />
+              <figcaption>In the classroom — Mathematics &amp; Computer Studies</figcaption>
+            </figure>
+          </div>
+
+          <div class="about__copy" data-reveal>
+            <p class="eyebrow">About</p>
+            <h2 style="margin-block: 1rem 1.4rem;">Teaching is the work.<br>Building is how I teach it.</h2>
+
+            <p>
+              I am a <strong>Mathematics and Computer Studies educator</strong> working with
+              secondary-school learners in Kenya. My job in the classroom is to make abstract
+              ideas concrete — and I found the fastest way to do that is to build the thing
+              I'm explaining.
+            </p>
+            <p>
+              That habit became a second practice. I design <strong>spreadsheet systems and
+              dashboards</strong> that help teachers track performance without drowning in
+              paperwork, write small <strong>Python and JavaScript tools</strong> that remove
+              repetitive work, and provide <strong>IT support</strong> to schools and small
+              businesses that need someone patient and practical.
+            </p>
+            <p>
+              Everything on this site is something I built for a real problem — most of them
+              problems I met while teaching.
+            </p>
+
+            <dl class="about__facts">
+              <div class="about__fact">
+                <dt>Focus</dt>
+                <dd>Maths &amp; Computer Studies</dd>
+              </div>
+              <div class="about__fact">
+                <dt>Work</dt>
+                <dd>Education &amp; technology</dd>
+              </div>
+              <div class="about__fact">
+                <dt>Based</dt>
+                <dd>Nairobi, Kenya</dd>
+              </div>
+              <div class="about__fact">
+                <dt>Mode</dt>
+                <dd>Online and in person</dd>
+              </div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SKILLS ============================ -->
+    <section class="section section--sunken" id="skills">
+      <div class="wrap">
+        <div class="section-head section-head--split" data-reveal>
+          <div>
+            <p class="eyebrow">Capabilities</p>
+            <h2 style="margin-top: .9rem;">What I actually work with</h2>
+          </div>
+          <p class="lede">
+            Grouped by where I use them rather than as a list of percentages — these are tools
+            I reach for on real tasks, not badges.
+          </p>
         </div>
 
-        <!-- Right: bio text -->
-        <div class="about__text">
-          <p class="section__label reveal">About Me</p>
-          <h2 class="section__title reveal">
-            A Reliable Educator,<br />A Skilled Problem Solver
-          </h2>
-          <p class="about__bio reveal">
-            I am a dedicated Mathematics and Computer Studies teacher with a passion
-            for making complex ideas accessible. Whether in a classroom, online, or on
-            a freelance project, I bring precision, patience, and a practical mindset
-            to everything I do.
+        <div class="skills__grid" data-reveal>
+          <div class="skill-group">
+            <div class="skill-group__head">
+              <span class="skill-group__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5h18M8 3v3.5M16 3v3.5M4.5 6.5v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-12"/><path d="m8.5 12 2 2 4-4"/></svg>
+              </span>
+              <h3>Education</h3>
+            </div>
+            <ul>
+              <li>Mathematics tutoring</li>
+              <li>Computer Studies</li>
+              <li>Educational technology</li>
+              <li>CBC-aligned assessment</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group__head">
+              <span class="skill-group__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>
+              </span>
+              <h3>Technology</h3>
+            </div>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>Frontend development</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group__head">
+              <span class="skill-group__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg>
+              </span>
+              <h3>Data &amp; productivity</h3>
+            </div>
+            <ul>
+              <li>Microsoft Excel</li>
+              <li>Google Sheets</li>
+              <li>Data analysis</li>
+              <li>Dashboards</li>
+              <li>Spreadsheet automation</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group__head">
+              <span class="skill-group__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 1 0 5 5L20 21l-9.5-9.5"/><circle cx="6" cy="6" r="3"/></svg>
+              </span>
+              <h3>Services &amp; support</h3>
+            </div>
+            <ul>
+              <li>IT support</li>
+              <li>Graphic design</li>
+              <li>Digital solutions</li>
+              <li>Training &amp; handover</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SERVICES ============================ -->
+    <section class="section section--ink" id="services">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow" style="color: var(--gold-soft);">Services</p>
+          <h2 style="margin-top: .9rem; color: #fff;">Eight ways I can help</h2>
+          <p class="lede" style="color: #A5B6CB;">
+            Clear scope, honest timelines, and a handover that leaves you able to run it
+            yourself. Available online and in person around Nairobi.
           </p>
-          <p class="about__bio reveal">
-            Beyond teaching, I help individuals and small businesses with spreadsheet
-            solutions, basic Python scripting, graphic design, and IT support — bridging
-            the gap between education and real-world technology needs.
+        </div>
+
+        <div class="services__grid" data-reveal>
+          <article class="service">
+            <span class="service__num">01</span>
+            <h3>Online Mathematics Tutoring</h3>
+            <p>One-to-one and small-group sessions built around your syllabus, pace and weak topics — with worked practice between sessions.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="service">
+            <span class="service__num">02</span>
+            <h3>Computer Studies Tutoring</h3>
+            <p>Programming fundamentals, hardware, networks and databases — explained by someone who builds with them daily.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="service">
+            <span class="service__num">03</span>
+            <h3>Excel &amp; Google Sheets Solutions</h3>
+            <p>Templates, formulas and automation for schools and small businesses — built so a non-technical person can maintain them.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="service">
+            <span class="service__num">04</span>
+            <h3>Dashboards &amp; Data Analysis</h3>
+            <p>Turn raw marks, sales or attendance data into a dashboard that answers the question you're actually asking.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="service">
+            <span class="service__num">05</span>
+            <h3>Python Automation</h3>
+            <p>Small scripts that remove repetitive work — file processing, report generation, data cleaning, simple scheduling.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="service">
+            <span class="service__num">06</span>
+            <h3>Website &amp; Frontend Development</h3>
+            <p>Fast, accessible, hand-built sites and web tools — like the ones in the projects below. No bloated page builders.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="service">
+            <span class="service__num">07</span>
+            <h3>IT Support</h3>
+            <p>Diagnostics, device setup, software installation, network configuration and patient troubleshooting for homes and small offices.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="service">
+            <span class="service__num">08</span>
+            <h3>Educational Digital Resources</h3>
+            <p>Printable revision material, classroom visuals and digital worksheets designed around the Kenyan curriculum.</p>
+            <a class="service__link" href="#contact">Enquire <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURED WORK ============================ -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head section-head--split" data-reveal>
+          <div>
+            <p class="eyebrow">Featured</p>
+            <h2 style="margin-top: .9rem;">Two systems built for<br>real institutions</h2>
+          </div>
+          <p class="lede">
+            Not concept pieces. One is used to track a full class of CBC learners; the other
+            manages student money in a boarding school.
           </p>
-          <ul class="about__highlights reveal">
-            <li>
-              <div class="about__highlight-icon" aria-hidden="true">✓</div>
-              Consistent, punctual, and results-driven
-            </li>
-            <li>
-              <div class="about__highlight-icon" aria-hidden="true">✓</div>
-              Clear communicator with students and clients alike
-            </li>
-            <li>
-              <div class="about__highlight-icon" aria-hidden="true">✓</div>
-              Always learning — committed to professional growth
-            </li>
+        </div>
+
+        <div class="featured" data-reveal>
+
+          <!-- Featured 1 -->
+          <article class="feat">
+            <div class="feat__media">
+              <img src="assets/img/projects/featured-tracker.jpg" width="1400" height="875"
+                   alt="CBC Student Performance Tracker showing a 69% mean score, competency radar chart and subject score bars"
+                   loading="lazy" decoding="async" />
+              <span class="feat__flag">Case study</span>
+            </div>
+            <div class="feat__body">
+              <h3>Student Performance Tracker</h3>
+              <p>
+                A browser-based analytics tool for Kenyan CBC assessment. Enter marks once and
+                get banded competency levels, subject rankings, term comparisons and a printable
+                report.
+              </p>
+
+              <div class="feat__problem">
+                <strong>The problem:</strong> teachers track a class of 40+ learners across a
+                dozen subjects by hand. Finding the three who need intervention takes hours, and
+                by the time the analysis is done the term is over.
+              </div>
+
+              <ul class="feat__features">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> CBC banding (EE1 → BE) calculated automatically</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Competency radar and ranked subject bars</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Generates a 1-hour study timetable from free slots</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> PDF export for parents' evenings</li>
+              </ul>
+
+              <div class="feat__foot">
+                <a href="performance-tracker.html" class="btn btn--primary btn--sm">Open live app</a>
+                <a href="#projects" class="arrow-link">More detail
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Featured 2 -->
+          <article class="feat">
+            <div class="feat__media">
+              <div class="card__placeholder" style="aspect-ratio:16/10;">
+                <div>
+                  <strong>Student Cash Management System</strong>
+                  React · Firebase Auth · Firestore
+                  <div style="margin-top:.6rem;font-size:.72rem;line-height:1.5;">
+                    Live app link is currently returning an empty screen<br>(Firebase config issue) — see note in Projects
+                  </div>
+                </div>
+              </div>
+              <span class="feat__flag">Case study</span>
+            </div>
+            <div class="feat__body">
+              <h3>Student Cash Management System</h3>
+              <p>
+                A full-stack, banking-style ledger for boarding schools. Teachers hold student
+                funds; every deposit and withdrawal is recorded with a running balance.
+              </p>
+
+              <div class="feat__problem">
+                <strong>The problem:</strong> cash held on behalf of students is usually tracked
+                in a paper book. Balances disagree between staff, disputes are hard to settle,
+                and there is no audit trail.
+              </div>
+
+              <ul class="feat__features">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Role-based access for admins and teachers</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Deposits, withdrawals and running balances</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> Full transaction history per student</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg> CSV export for end-of-term reconciliation</li>
+              </ul>
+
+              <div class="feat__foot">
+                <span class="btn btn--ghost btn--sm" style="cursor:default; opacity:.62;" aria-disabled="true">Demo unavailable</span>
+                <a href="#projects" class="arrow-link">More detail
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROJECTS ============================ -->
+    <section class="section section--sunken" id="projects">
+      <div class="wrap">
+        <div class="section-head section-head--split" data-reveal>
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2 style="margin-top: .9rem;">Projects</h2>
+          </div>
+          <p class="lede">
+            Every card marked <em>Live</em> opens a working application. Screenshots are of the
+            real tools, captured in use.
+          </p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter projects by category">
+          <button class="filter" type="button" data-filter="all"      aria-pressed="true">All projects</button>
+          <button class="filter" type="button" data-filter="education"    aria-pressed="false">Education</button>
+          <button class="filter" type="button" data-filter="web"         aria-pressed="false">Web applications</button>
+          <button class="filter" type="button" data-filter="productivity" aria-pressed="false">Productivity</button>
+          <button class="filter" type="button" data-filter="data"        aria-pressed="false">Data &amp; analytics</button>
+        </div>
+
+        <div class="projects" id="projectGrid">
+
+          <!-- 1. Performance tracker -->
+          <article class="card" data-cats="education web data">
+            <div class="card__media">
+              <img src="assets/img/projects/student-performance-tracker.jpg" width="1120" height="700"
+                   alt="Student Performance Tracker analysis view with mean score and competency radar"
+                   loading="lazy" decoding="async" />
+              <span class="card__status card__status--live">Live</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">Education · Analytics</p>
+              <h3>Student Performance Tracker</h3>
+              <p class="card__desc">
+                CBC assessment analytics for Kenyan schools — banded competency levels, radar
+                charts, term comparison and printable reports.
+              </p>
+              <div class="tags">
+                <span class="tag">JavaScript</span><span class="tag">Chart.js</span><span class="tag">jsPDF</span>
+              </div>
+
+              <details class="case">
+                <summary>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                  Read the case study
+                </summary>
+                <dl class="case__body">
+                  <div><dt>Problem</dt><dd>Manual mark books make it slow to spot which learners need support before the term ends.</dd></div>
+                  <div><dt>Approach</dt><dd>Model CBC bands (EE1–BE) directly in the UI so every chart and remark derives from one score entry.</dd></div>
+                  <div><dt>Build</dt><dd>Vanilla JS, Chart.js for radar and bar visualisation, jsPDF for parent-ready exports. Runs entirely in the browser.</dd></div>
+                  <div><dt>Would change</dt><dd>Move storage to IndexedDB and add multi-class comparison.</dd></div>
+                </dl>
+              </details>
+
+              <div class="card__foot">
+                <a href="performance-tracker.html" class="arrow-link">Open app
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Password generator -->
+          <article class="card" data-cats="web productivity">
+            <div class="card__media">
+              <img src="assets/img/projects/password-generator.jpg" width="1120" height="700"
+                   alt="Secure Password Generator showing a strong generated password with length and character options"
+                   loading="lazy" decoding="async" />
+              <span class="card__status card__status--live">Live</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">Security · Utility</p>
+              <h3>Secure Password Generator</h3>
+              <p class="card__desc">
+                Generates strong passwords from your chosen length and character rules. Uses the
+                Web Crypto API — nothing leaves your device.
+              </p>
+              <div class="tags">
+                <span class="tag">JavaScript</span><span class="tag">Web Crypto</span>
+              </div>
+
+              <details class="case">
+                <summary>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                  Read the case study
+                </summary>
+                <dl class="case__body">
+                  <div><dt>Problem</dt><dd>Most "password generators" still use <code>Math.random()</code>, which is not cryptographically sound.</dd></div>
+                  <div><dt>Approach</dt><dd>Rejection sampling over <code>crypto.getRandomValues</code> so every character is uniformly distributed.</dd></div>
+                  <div><dt>Build</dt><dd>Single-page vanilla JS with a strength meter and recent history that never persists to storage.</dd></div>
+                </dl>
+              </details>
+
+              <div class="card__foot">
+                <a href="password-generator.html" class="arrow-link">Open app
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Study timetable -->
+          <article class="card" data-cats="education productivity">
+            <div class="card__media">
+              <img src="assets/img/projects/study-planner.jpg" width="1120" height="700"
+                   alt="Study Timetable Planner with a weekly grid and colour-coded subject list"
+                   loading="lazy" decoding="async" />
+              <span class="card__status card__status--live">Live</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">Productivity · Education</p>
+              <h3>Study Timetable Planner</h3>
+              <p class="card__desc">
+                Drag subjects onto an hour-by-hour weekly grid, colour-coded and printable, with
+                the plan saved in your browser.
+              </p>
+              <div class="tags">
+                <span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">Local Storage</span>
+              </div>
+
+              <details class="case">
+                <summary>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                  Read the case study
+                </summary>
+                <dl class="case__body">
+                  <div><dt>Problem</dt><dd>Learners plan revision on paper, lose it, and never rebuild the habit.</dd></div>
+                  <div><dt>Approach</dt><dd>Make the act of planning fast — click or drag a subject into a slot — then persist it so it survives a refresh.</dd></div>
+                  <div><dt>Build</dt><dd>Grid built in DOM, drag-and-drop plus click assignment, localStorage persistence, print stylesheet.</dd></div>
+                </dl>
+              </details>
+
+              <div class="card__foot">
+                <a href="study-timetable.html" class="arrow-link">Open app
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Cash system -->
+          <article class="card" data-cats="web data">
+            <div class="card__media">
+              <div class="card__placeholder">
+                <div>
+                  <strong>Student Cash Management</strong>
+                  React · Firebase Auth · Firestore
+                </div>
+              </div>
+              <span class="card__status card__status--offline">Demo offline</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">Web app · Full-stack</p>
+              <h3>Student Cash Management System</h3>
+              <p class="card__desc">
+                Banking-style ledger for boarding schools: teachers hold student funds, every
+                deposit and withdrawal tracked with running balances and CSV export.
+              </p>
+              <div class="tags">
+                <span class="tag">React</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span>
+              </div>
+
+              <details class="case">
+                <summary>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                  Read the case study
+                </summary>
+                <dl class="case__body">
+                  <div><dt>Problem</dt><dd>Cash held for students is tracked on paper — balances disagree and disputes can't be settled.</dd></div>
+                  <div><dt>Approach</dt><dd>Treat every movement as an immutable transaction and derive balances, never store them.</dd></div>
+                  <div><dt>Build</dt><dd>React front end, Firebase Authentication for staff roles, Firestore for transactions, CSV export for reconciliation.</dd></div>
+                  <div><dt>Status</dt><dd>The deployed demo currently fails to load: Firebase reports an invalid API key, so the app renders blank. Code is complete; the environment needs its Firebase credentials restored.</dd></div>
+                </dl>
+              </details>
+
+              <div class="card__foot">
+                <a href="https://student-cash-system.web.app" class="arrow-link" target="_blank" rel="noopener noreferrer">Open live app
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Budget tracker -->
+          <article class="card" data-cats="data productivity">
+            <div class="card__media">
+              <img src="assets/img/projects/budget-tracker.jpg" width="1120" height="700"
+                   alt="Budget and Expense Tracker showing income, expenses, balance and categorised transactions"
+                   loading="lazy" decoding="async" />
+              <span class="card__status card__status--live">Live</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">Finance · Reporting</p>
+              <h3>Budget &amp; Expense Tracker</h3>
+              <p class="card__desc">
+                Income and expense tracking with automatic monthly totals, category breakdowns
+                and printable summaries — built for freelancers and small businesses.
+              </p>
+              <div class="tags">
+                <span class="tag">JavaScript</span><span class="tag">Charts</span><span class="tag">Local Storage</span>
+              </div>
+
+              <details class="case">
+                <summary>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                  Read the case study
+                </summary>
+                <dl class="case__body">
+                  <div><dt>Problem</dt><dd>Freelance income is irregular; tracking it in a notebook hides where the money actually goes.</dd></div>
+                  <div><dt>Approach</dt><dd>One entry form, immediate feedback, and a category breakdown that answers "what did I spend on what?" at a glance.</dd></div>
+                  <div><dt>Build</dt><dd>Vanilla JS state model, live totals, CSS bar breakdown, localStorage and print styles.</dd></div>
+                </dl>
+              </details>
+
+              <div class="card__foot">
+                <a href="budget-tracker.html" class="arrow-link">Open app
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Classroom visual aids -->
+          <article class="card" data-cats="education">
+            <div class="card__media">
+              <div class="card__placeholder">
+                <div>
+                  <strong>Classroom Visual Aids</strong>
+                  Poster &amp; infographic set — samples available on request
+                </div>
+              </div>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">Graphic design · Education</p>
+              <h3>Classroom Visual Aids</h3>
+              <p class="card__desc">
+                A set of designed posters and infographics covering core Mathematics and
+                Computer Studies concepts, for classroom display and student handouts.
+              </p>
+              <div class="tags">
+                <span class="tag">Design</span><span class="tag">Education</span>
+              </div>
+
+              <details class="case">
+                <summary>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+                  Read the case study
+                </summary>
+                <dl class="case__body">
+                  <div><dt>Problem</dt><dd>Textbook diagrams are dense; learners need a single clear visual per concept.</dd></div>
+                  <div><dt>Approach</dt><dd>One concept per poster, high contrast, large type legible from the back of a classroom.</dd></div>
+                  <div><dt>Status</dt><dd>Not published online — designed for print. Samples shared on request.</dd></div>
+                </dl>
+              </details>
+
+              <div class="card__foot">
+                <a href="#contact" class="arrow-link">Request samples
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="projects__empty" id="projectsEmpty" hidden>No projects in this category yet.</p>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="contact__grid">
+
+          <div class="contact__intro" data-reveal>
+            <p class="eyebrow">Contact</p>
+            <h2 style="margin-top: .9rem;">Let's talk about<br>what you need</h2>
+            <p>
+              Whether it's a learner who needs a different explanation, a spreadsheet that has
+              outgrown itself, or a tool you wish existed — tell me the problem and I'll tell
+              you honestly whether I can help.
+            </p>
+
+            <div class="contact__methods">
+              <a class="method" href="mailto:johngichaga8@gmail.com">
+                <span class="method__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+                </span>
+                <span>
+                  <span class="method__label">Email</span>
+                  <span class="method__value">johngichaga8@gmail.com</span>
+                </span>
+              </a>
+
+              <a class="method" href="https://wa.me/254114094974" target="_blank" rel="noopener noreferrer">
+                <span class="method__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5v-.5c0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.4 1.9.8 2.6.9 3.6.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+                </span>
+                <span>
+                  <span class="method__label">WhatsApp</span>
+                  <span class="method__value">0114 094 974</span>
+                </span>
+              </a>
+
+              <a class="method" href="tel:+254114094974">
+                <span class="method__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h3l1.5 4.5-2 1.5a12 12 0 0 0 6 6l1.5-2L21 14.5v3a2.5 2.5 0 0 1-2.7 2.5A17.5 17.5 0 0 1 3.5 5.7 2.5 2.5 0 0 1 6.5 3Z"/></svg>
+                </span>
+                <span>
+                  <span class="method__label">Phone</span>
+                  <span class="method__value">+254 114 094 974</span>
+                </span>
+              </a>
+
+              <div class="method" style="cursor:default;">
+                <span class="method__icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                </span>
+                <span>
+                  <span class="method__label">Location</span>
+                  <span class="method__value">Nairobi, Kenya</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card" data-reveal>
+            <form id="contactForm" action="https://formspree.io/f/mqewyeok" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="New enquiry from your portfolio site" />
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+
+              <div class="field--row">
+                <div class="field">
+                  <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Mwangi"
+                         required aria-describedby="nameErr" />
+                  <span class="field__error" id="nameErr">Please tell me your name.</span>
+                </div>
+                <div class="field">
+                  <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com"
+                         required aria-describedby="emailErr" />
+                  <span class="field__error" id="emailErr">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="service">What do you need?</label>
+                <select id="service" name="service">
+                  <option value="">Select a service…</option>
+                  <option>Online Mathematics tutoring</option>
+                  <option>Computer Studies tutoring</option>
+                  <option>Excel / Google Sheets solutions</option>
+                  <option>Dashboards &amp; data analysis</option>
+                  <option>Python automation</option>
+                  <option>Website / frontend development</option>
+                  <option>IT support</option>
+                  <option>Educational digital resources</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="4" required aria-describedby="messageErr"
+                          placeholder="Tell me the problem you're trying to solve, and any deadline."></textarea>
+                <span class="field__error" id="messageErr">A short message helps me reply usefully.</span>
+              </div>
+
+              <button type="submit" class="btn btn--primary btn--block" id="submitBtn">
+                <span class="spinner" aria-hidden="true"></span>
+                <span class="btn__label">Send message</span>
+              </button>
+
+              <p class="form-note">I usually reply within 24 hours.</p>
+
+              <div class="form-status form-status--ok"  id="formOk"  role="status" aria-live="polite">
+                <strong>Message sent.</strong> Thank you — I'll get back to you shortly.
+              </div>
+              <div class="form-status form-status--err" id="formErr" role="alert">
+                <strong>Something went wrong.</strong> Please email me directly at
+                <a href="mailto:johngichaga8@gmail.com">johngichaga8@gmail.com</a>.
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div>
+          <a href="#top" class="brand">
+            <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect x="1.25" y="1.25" width="37.5" height="37.5" rx="8.5" stroke="currentColor" stroke-width="1.4" opacity=".3"/>
+          <path d="M14.2 11.6v11.1c0 3.05-1.72 4.62-4.16 4.62-1.28 0-2.32-.32-3.04-.86"
+                stroke="var(--gold)" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M33.9 15.4a7.4 7.4 0 1 0 0 9.2"
+                stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M34.3 20h-5.1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+            <span>John Gichaga<span class="brand__dot">.</span></span>
+          </a>
+          <p class="footer__blurb">
+            Educator and technology professional in Nairobi, building practical digital tools
+            for learning, teaching and small business.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Navigate</h3>
+          <ul class="footer__list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Featured work</a></li>
+            <li><a href="#projects">All projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Elsewhere</h3>
+          <ul class="footer__list">
+            <li><a href="https://github.com/gichagajohn" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+            <li><a href="mailto:johngichaga8@gmail.com">Email</a></li>
+            <li><a href="https://wa.me/254114094974" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="tel:+254114094974">+254 114 094 974</a></li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ============================================================
-       CLASSROOM BAND — uses the second photo, adds a human moment
-  ============================================================ -->
-  <section class="strip" aria-label="John Gichaga in the classroom">
-    <img
-      src="assets/img/about-banner.jpg"
-      width="1200"
-      height="675"
-      alt="John Gichaga in front of a whiteboard covered in mathematics formulas"
-      loading="lazy"
-      decoding="async"
-      class="strip__img"
-    />
-    <div class="strip__overlay">
-      <p class="strip__quote">“If I can’t explain it simply, I haven’t understood it well enough.”</p>
-      <p class="strip__caption">In the classroom · Mathematics &amp; Computer Studies · Nairobi</p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SKILLS SECTION
-  ============================================================ -->
-  <section class="section skills" id="skills">
-    <div class="container">
-      <p class="section__label reveal">What I Do</p>
-      <h2 class="section__title reveal">Skills &amp; Expertise</h2>
-      <div class="skills__grid">
-
-        <div class="skill-card reveal">
-          <div class="skill-card__icon" aria-hidden="true">∑</div>
-          <h3>Mathematics Tutoring</h3>
-          <p>From secondary school algebra to advanced calculus — I simplify concepts and build real understanding.</p>
-          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 95%"></div></div>
-          <span class="skill-card__level">Expert</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card__icon" aria-hidden="true">⌨</div>
-          <h3>Computer Studies</h3>
-          <p>Teaching hardware, software, networking, databases, and programming fundamentals in a clear, structured way.</p>
-          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 90%"></div></div>
-          <span class="skill-card__level">Expert</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card__icon" aria-hidden="true">🐍</div>
-          <h3>Python Programming</h3>
-          <p>Scripts, automation, data manipulation, and beginner-to-intermediate projects with clean, readable code.</p>
-          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 70%"></div></div>
-          <span class="skill-card__level">Intermediate</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card__icon" aria-hidden="true">⊞</div>
-          <h3>Spreadsheet &amp; Data Analysis</h3>
-          <p>Excel formulas, pivot tables, automated reports, dashboards, and data cleaning for informed decisions.</p>
-          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 88%"></div></div>
-          <span class="skill-card__level">Advanced</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card__icon" aria-hidden="true">◈</div>
-          <h3>Graphic Design</h3>
-          <p>Clean visuals, posters, educational materials, and simple branding with attention to layout and clarity.</p>
-          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 75%"></div></div>
-          <span class="skill-card__level">Proficient</span>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-card__icon" aria-hidden="true">⚙</div>
-          <h3>IT Support</h3>
-          <p>Troubleshooting, device setup, software installation, and general tech support for homes and small offices.</p>
-          <div class="skill-card__bar" role="presentation"><div class="skill-card__fill" style="--pct: 82%"></div></div>
-          <span class="skill-card__level">Advanced</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SERVICES SECTION
-  ============================================================ -->
-  <section class="section services" id="services">
-    <div class="container">
-      <p class="section__label reveal">What I Offer</p>
-      <h2 class="section__title reveal">Services</h2>
-      <p class="section__sub reveal">
-        Available for online and in-person engagements. Clear deliverables, fair pricing, on-time results.
-      </p>
-      <div class="services__grid">
-
-        <div class="service-card reveal">
-          <div class="service-card__number" aria-hidden="true">01</div>
-          <h3>Online Tutoring</h3>
-          <p>One-on-one and group tutoring sessions for Mathematics and Computer Studies, tailored to your curriculum and pace.</p>
-          <a href="#contact" class="service-card__link">Get Started →</a>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-card__number" aria-hidden="true">02</div>
-          <h3>Academic &amp; Assignment Support</h3>
-          <p>Help with homework, assignments, exam prep, and understanding difficult concepts across STEM subjects.</p>
-          <a href="#contact" class="service-card__link">Get Started →</a>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-card__number" aria-hidden="true">03</div>
-          <h3>Spreadsheet Solutions</h3>
-          <p>Custom Excel templates, automated calculations, data reports, dashboards, and data cleaning for individuals and businesses.</p>
-          <a href="#contact" class="service-card__link">Get Started →</a>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-card__number" aria-hidden="true">04</div>
-          <h3>Basic Programming Tasks</h3>
-          <p>Simple Python scripts, automation tools, file processing, and beginner-level code projects.</p>
-          <a href="#contact" class="service-card__link">Get Started →</a>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-card__number" aria-hidden="true">05</div>
-          <h3>IT Troubleshooting &amp; Support</h3>
-          <p>Device diagnostics, software setup, virus removal, network configuration, and general tech assistance.</p>
-          <a href="#contact" class="service-card__link">Get Started →</a>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="service-card__number" aria-hidden="true">06</div>
-          <h3>Graphic Design</h3>
-          <p>Educational posters, school materials, simple logos, flyers, and visual content with a clean, professional look.</p>
-          <a href="#contact" class="service-card__link">Get Started →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       PROJECTS SECTION
-  ============================================================ -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <p class="section__label reveal">My Work</p>
-      <h2 class="section__title reveal">Projects &amp; Portfolio</h2>
-      <p class="section__sub reveal">
-        Every project below is live — click through and use it. Each one started as a
-        problem I met in a classroom or with a client.
-      </p>
-      <div class="projects__grid">
-
-        <article class="project-card reveal">
-          <a href="performance-tracker.html" class="project-card__link-wrap">
-            <div class="project-card__tag">Education · Analytics</div>
-            <h3>Student Performance Tracker</h3>
-            <p>
-              A web app for tracking CBC learner marks across subjects, comparing terms,
-              setting targets and generating progress charts — saving teachers hours of
-              manual work.
-            </p>
-            <div class="project-card__footer">
-              <span class="project-card__tech">JavaScript</span>
-              <span class="project-card__tech">Chart.js</span>
-              <span class="project-card__tech">PDF Export</span>
-            </div>
-            <span class="project-card__cta">Open app →</span>
-          </a>
-        </article>
-
-        <article class="project-card reveal">
-          <a href="password-generator.html" class="project-card__link-wrap">
-            <div class="project-card__tag">Security · Utility</div>
-            <h3>Secure Password Generator</h3>
-            <p>
-              A browser-based generator that creates strong passwords from your chosen
-              length and character rules. Uses the Web Crypto API — the generated
-              password never leaves your device.
-            </p>
-            <div class="project-card__footer">
-              <span class="project-card__tech">JavaScript</span>
-              <span class="project-card__tech">Web Crypto</span>
-            </div>
-            <span class="project-card__cta">Try it →</span>
-          </a>
-        </article>
-
-        <article class="project-card reveal">
-          <a href="study-timetable.html" class="project-card__link-wrap">
-            <div class="project-card__tag">Productivity · Education</div>
-            <h3>Study Timetable Generator</h3>
-            <p>
-              Build a weekly study timetable by dragging subjects onto time slots.
-              Colour-coded, printable, and saved in your browser so your plan is still
-              there when you come back.
-            </p>
-            <div class="project-card__footer">
-              <span class="project-card__tech">HTML</span>
-              <span class="project-card__tech">JavaScript</span>
-              <span class="project-card__tech">Local Storage</span>
-            </div>
-            <span class="project-card__cta">Try it →</span>
-          </a>
-        </article>
-
-        <article class="project-card reveal">
-          <a href="https://student-cash-system.web.app" target="_blank" rel="noopener noreferrer" class="project-card__link-wrap">
-            <div class="project-card__tag">Firebase · React</div>
-            <h3>Student Cash Management System</h3>
-            <p>
-              A full-stack banking-style cash management system built for boarding schools.
-              Teachers securely hold and manage student funds, recording deposits and withdrawals
-              with real-time balance tracking. Built with React, Firebase Authentication, and
-              Firestore — featuring role-based access for admins and teachers, full transaction
-              history, and CSV export reports.
-            </p>
-            <div class="project-card__footer">
-              <span class="project-card__tech">React</span>
-              <span class="project-card__tech">Firebase Auth</span>
-              <span class="project-card__tech">Firestore</span>
-            </div>
-            <span class="project-card__cta">Open live app ↗</span>
-          </a>
-        </article>
-
-        <article class="project-card reveal">
-          <a href="budget-tracker.html" class="project-card__link-wrap">
-            <div class="project-card__tag">Finance · Reporting</div>
-            <h3>Budget &amp; Expense Tracker</h3>
-            <p>
-              A ready-to-use tracker for income and expenses with automated monthly
-              summaries, category breakdowns and printable reports — designed for
-              freelancers and small business owners.
-            </p>
-            <div class="project-card__footer">
-              <span class="project-card__tech">JavaScript</span>
-              <span class="project-card__tech">Charts</span>
-              <span class="project-card__tech">Local Storage</span>
-            </div>
-            <span class="project-card__cta">Try it →</span>
-          </a>
-        </article>
-
-        <article class="project-card reveal">
-          <div class="project-card__tag">Graphic Design · Education</div>
-          <h3>Classroom Visual Aids</h3>
-          <p>
-            A set of professionally designed posters and infographics covering
-            core mathematics and computer studies concepts — created for
-            classroom display and student handouts.
-          </p>
-          <div class="project-card__footer">
-            <span class="project-card__tech">Design</span>
-            <span class="project-card__tech">Education</span>
-          </div>
-          <span class="project-card__cta project-card__cta--muted">Samples on request</span>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       CONTACT SECTION
-  ============================================================ -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <div class="contact__grid">
-
-        <!-- Left: info -->
-        <div class="contact__info">
-          <p class="section__label reveal">Get In Touch</p>
-          <h2 class="section__title reveal">
-            Let's Work<br /><em>Together</em>
-          </h2>
-          <p class="contact__desc reveal">
-            Whether you need a tutor, a spreadsheet built, tech support, or any of
-            my other services — I'd love to hear from you. Get in touch and I'll
-            respond promptly.
-          </p>
-          <div class="contact__details reveal">
-            <a href="tel:+254114094974" class="contact__detail">
-              <div class="contact__detail-icon" aria-hidden="true">📞</div>
-              <div>
-                <span class="contact__detail-label">Phone</span>
-                <span class="contact__detail-value">0114 094 974</span>
-              </div>
-            </a>
-            <a href="mailto:johngichaga8@gmail.com" class="contact__detail">
-              <div class="contact__detail-icon" aria-hidden="true">✉</div>
-              <div>
-                <span class="contact__detail-label">Email</span>
-                <span class="contact__detail-value">johngichaga8@gmail.com</span>
-              </div>
-            </a>
-            <div class="contact__detail">
-              <div class="contact__detail-icon" aria-hidden="true">📍</div>
-              <div>
-                <span class="contact__detail-label">Location</span>
-                <span class="contact__detail-value">Nairobi, Kenya</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: form powered by Formspree -->
-        <div class="contact__form-wrap reveal">
-          <form
-            class="contact__form"
-            id="contactForm"
-            action="https://formspree.io/f/mqewyeok"
-            method="POST"
-          >
-            <input type="hidden" name="_subject" value="New message from your portfolio site" />
-            <!-- Honeypot: bots fill this, humans never see it -->
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
-
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="e.g. Jane Mwangi" autocomplete="name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" required />
-            </div>
-            <div class="form-group">
-              <label for="service">Service Needed</label>
-              <select id="service" name="service">
-                <option value="">— Select a service —</option>
-                <option>Online Tutoring (Maths)</option>
-                <option>Online Tutoring (Computer Studies)</option>
-                <option>Assignment / Academic Support</option>
-                <option>Spreadsheet Solutions</option>
-                <option>Python / Programming Task</option>
-                <option>IT Support</option>
-                <option>Graphic Design</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell me about your project or what you need help with…" required></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
-              Send Message
-            </button>
-            <p class="form-note">I usually respond within 24 hours.</p>
-          </form>
-
-          <!-- Success message -->
-          <div class="form-success" id="formSuccess" role="status">
-            <div class="form-success__icon" aria-hidden="true">✓</div>
-            <h3>Message Sent!</h3>
-            <p>Thank you for reaching out. I'll get back to you shortly.</p>
-          </div>
-
-          <!-- Error fallback -->
-          <div class="form-error" id="formError" role="alert">
-            <p>⚠ Something went wrong. Please email me directly at
-              <a href="mailto:johngichaga8@gmail.com">johngichaga8@gmail.com</a>
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <span class="footer__logo">JG<span class="nav__dot">.</span></span>
-        <p class="footer__copy">© 2026 John Gichaga. All rights reserved.</p>
-        <p class="footer__made">Educator · Freelancer · Problem Solver</p>
-        <a href="https://github.com/gichagajohn" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> John Gichaga. All rights reserved.</p>
+        <p>Designed and built by hand — HTML, CSS, vanilla JavaScript.</p>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="assets/js/portfolio.js"></script>
 </body>
 </html>

@@ -647,7 +647,7 @@ em { font-style: italic; color: var(--accent-ink); }
   transform: translateY(-2px);
 }
 
-/* Portrait: editorial offset frame, not a rounded blob */
+/* Portrait with a crisp frame and an even gold outline */
 .hero__figure { position: relative; justify-self: center; width: 100%; max-width: 420px; }
 .hero__photo-frame {
   position: relative;
@@ -666,11 +666,11 @@ em { font-style: italic; color: var(--accent-ink); }
 }
 .hero__photo-frame img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 18%; }
 
-/* Offset gold rule behind the frame — sits behind, offset down-right */
+/* Gold outline wraps the portrait evenly at every screen size. */
 .hero__figure::before {
   content: '';
   position: absolute;
-  inset: 0 -13px -13px 13px;
+  inset: -10px;
   border: 1px solid var(--accent);
   border-radius: var(--radius-sm);
   opacity: .42;
@@ -704,9 +704,6 @@ em { font-style: italic; color: var(--accent-ink); }
 
 @media (max-width: 979px) {
   .hero__figure { order: -1; max-width: 300px; justify-self: start; }
-  /* On phones, keep the portrait fully inside the gold outline instead of
-     using the editorial down-right overlap shown at larger sizes. */
-  .hero__figure::before { inset: -10px; }
   .hero__figcaption { display: none; }
 }
 

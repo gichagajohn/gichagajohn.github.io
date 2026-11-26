@@ -704,6 +704,9 @@ em { font-style: italic; color: var(--accent-ink); }
 
 @media (max-width: 979px) {
   .hero__figure { order: -1; max-width: 300px; justify-self: start; }
+  /* On phones, keep the portrait fully inside the gold outline instead of
+     using the editorial down-right overlap shown at larger sizes. */
+  .hero__figure::before { inset: -10px; }
   .hero__figcaption { display: none; }
 }
 
